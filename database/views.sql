@@ -1,12 +1,20 @@
 -- Create View
 -- USE {database};
--- IF OBJECT_ID('{schema}.query_clustering', 'V') IS NOT NULL
+
+-- DECLARE @view NVARCHAR(MAX);
+-- SET @view = 'TEST_VIEW';
+
+-- DECLARE @sql NVARCHAR(MAX);
+-- SET @sql = '
+--         CREATE VIEW {schema}.' + @view + ' AS
+-- 		SELECT * FROM {database}.{schema}.CHEVY';
+
+-- IF OBJECT_ID('{schema}.' + @view, 'V') IS NOT NULL
 -- 	BEGIN
--- 		PRINT 'View QUERY_Clustering exists'
+-- 		PRINT 'View ' + @view + ' exists';
 -- 	END
 -- ELSE
 -- 	BEGIN
--- 		EXEC('CREATE VIEW {schema}.query_clustering AS
--- 		SELECT * FROM {database}.{schema}.Clustering')
--- 		PRINT 'View query_clustering created';
+-- 		EXEC(@sql);
+-- 		PRINT 'View ' + @view + ' created';
 -- 	END

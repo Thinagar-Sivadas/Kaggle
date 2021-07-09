@@ -1,15 +1,28 @@
 -- Create Table
 USE {database};
-IF OBJECT_ID('{database}.{schema}.Test') IS NOT NULL
+
+DECLARE @table NVARCHAR(MAX);
+SET @table = 'INDIA_COVID_19_STATEWISE_DATA';
+
+DECLARE @sql NVARCHAR(MAX);
+SET @sql = '
+		CREATE TABLE {database}.{schema}.' + @table +' (
+		State_UTs VARCHAR(MAX),
+		Total_Cases INT,
+        Active INT,
+		Discharged INT,
+		Deaths INT,
+		Active_Ratio FLOAT(24),
+		Discharge_Ratio FLOAT(24),
+		Death_Ratio FLOAT(24)
+		);';
+
+IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
 	BEGIN
-		PRINT 'Database table Test exists';
+		PRINT 'Database table ' + @table + ' exists';
 	END
 ELSE
     BEGIN
-		CREATE TABLE {database}.{schema}.Test (
-		Feature1 FLOAT(24),
-		Feature2 FLOAT(24),
-        Target INT
-		);
-		PRINT 'Database table Test created';
+		EXEC(@sql);
+		PRINT 'Database table ' + @table + ' created';
 	END

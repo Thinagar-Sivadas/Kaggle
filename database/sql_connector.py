@@ -86,7 +86,11 @@ class SqlConnector(ConfigInit):
             Pandas Dataframe: Returns sql query wraped in pandas dataframe
         """
 
-        return pd.read_sql(sql, con=self.db_user_engine)
+        if "DELETE FROM" in sql.upper() or "UPDATE" in sql.upper():
+            with self.db_user_engine.connect() as con:
+                con.execute(sql)
+        else:
+            return pd.read_sql(sql, con=self.db_user_engine)
 
     def ingest_dataframe(self, df, schema, table):
         """Ingest dataframe
