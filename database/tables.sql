@@ -2,7 +2,7 @@
 USE {database};
 
 DECLARE @table NVARCHAR(MAX);
-SET @table = 'INDIA_COVID_19_STATEWISE_DATA';
+SET @table = 'STATEWISE_DATA';
 
 DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
