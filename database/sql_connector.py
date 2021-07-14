@@ -86,11 +86,18 @@ class SqlConnector(ConfigInit):
             Pandas Dataframe: Returns sql query wraped in pandas dataframe
         """
 
-        if "DELETE FROM" in sql.upper() or "UPDATE" in sql.upper():
+        # If the query have a return
+        if "SELECT" in sql.upper().split()[0]:
+            df = pd.read_sql(sql, con=self.db_user_engine)
+
+        # If the query does not have a return
+        else:
+            df = None
             with self.db_user_engine.connect() as con:
                 con.execute(sql)
-        else:
-            return pd.read_sql(sql, con=self.db_user_engine)
+
+        print("Query done")
+        return df
 
     def ingest_dataframe(self, df, schema, table):
         """Ingest dataframe
@@ -109,16 +116,4 @@ class SqlConnector(ConfigInit):
                   method="multi",
                   chunksize=(2100 // len(df.columns.tolist())) - 1
                  )
-        print("Data ingested")
-
-    def ingest_query(self, queries):
-        """Ingest queries
-
-        Args:
-            queries (list): List of string that contains the query to ingest
-        """
-
-        with self.db_user_engine.connect() as con:
-            for query in queries:
-                con.execute(query)
         print("Data ingested")
