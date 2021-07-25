@@ -7,12 +7,10 @@ SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
 		Title VARCHAR(MAX) NOT NULL,
 		Release_Date DATE,
-		Running_Time INT,
-        Budget INT,
-		Box_Office INT,
-		IMDB INT,
-		Metascore INT,
-		Rotten_Tomatoes INT
+		Genre VARCHAR(MAX),
+		MPAA_Rating VARCHAR(MAX),
+        Total_Gross BIGINT,
+		Inflation_Adjusted_Gross BIGINT
 		);';
 
 IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
