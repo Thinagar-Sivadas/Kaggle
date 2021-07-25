@@ -5,12 +5,14 @@ SET @table = 'DATA';
 DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
-		Title VARCHAR(MAX) NOT NULL,
-		Release_Date DATE,
-		Genre VARCHAR(MAX),
-		MPAA_Rating VARCHAR(MAX),
-        Total_Gross BIGINT,
-		Inflation_Adjusted_Gross BIGINT
+		Gender VARCHAR(MAX),
+		Race_Ethnicity VARCHAR(MAX),
+		Parent_Education_Level VARCHAR(MAX),
+		Lunch VARCHAR(MAX),
+        Test_Preparation_Course VARCHAR(MAX),
+		Math_Score INT,
+		Reading_Score INT,
+		Writing_Score INT,
 		);';
 
 IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
