@@ -1,10 +1,11 @@
 -- Create Table
 DECLARE @table NVARCHAR(MAX);
-SET @table = 'DATA';
+SET @table = 'STUDENT';
 
 DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
+		ID INT IDENTITY(1,1) PRIMARY KEY,
 		Gender VARCHAR(MAX),
 		Race_Ethnicity VARCHAR(MAX),
 		Parent_Education_Level VARCHAR(MAX),
