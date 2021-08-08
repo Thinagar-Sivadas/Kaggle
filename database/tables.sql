@@ -1,19 +1,18 @@
 -- Create Table
 DECLARE @table NVARCHAR(MAX);
-SET @table = 'STUDENT';
+SET @table = 'FORBES';
 
 DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
 		ID INT IDENTITY(1,1) PRIMARY KEY,
-		Gender VARCHAR(MAX),
-		Race_Ethnicity VARCHAR(MAX),
-		Parent_Education_Level VARCHAR(MAX),
-		Lunch VARCHAR(MAX),
-        Test_Preparation_Course VARCHAR(MAX),
-		Math_Score INT,
-		Reading_Score INT,
-		Writing_Score INT,
+		Name VARCHAR(MAX),
+		NetWorth VARCHAR(MAX),
+		Country VARCHAR(MAX),
+		Source VARCHAR(MAX),
+		Rank INT,
+        Age INT,
+		Industry VARCHAR(MAX)
 		);';
 
 IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
