@@ -7,7 +7,7 @@ SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
 		ID INT IDENTITY(1,1) PRIMARY KEY,
 		Name VARCHAR(MAX),
-		NetWorth VARCHAR(MAX),
+		NetWorth INT,
 		Country VARCHAR(MAX),
 		Source VARCHAR(MAX),
 		Rank INT,
