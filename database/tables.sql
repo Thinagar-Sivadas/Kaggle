@@ -34,7 +34,7 @@ DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
 		ID INT IDENTITY(1,1) PRIMARY KEY,
-		Entity VARCHAR(MAX),
+		Country VARCHAR(MAX),
 		Year INT,
 		Life_Expectancy FLOAT
 		);';
