@@ -28,15 +28,18 @@ ELSE
 GO
 
 DECLARE @table NVARCHAR(MAX);
-SET @table = 'LIFE_EXPECTANCY';
+SET @table = 'INDIAN_IMDB';
 
 DECLARE @sql NVARCHAR(MAX);
 SET @sql = '
 		CREATE TABLE {database}.{schema}.' + @table +' (
 		ID INT IDENTITY(1,1) PRIMARY KEY,
-		Country VARCHAR(MAX),
-		Year INT,
-		Life_Expectancy FLOAT
+		Title VARCHAR(MAX),
+		Year_Of_Release SMALLINT,
+		Genre VARCHAR(MAX),
+		Director VARCHAR(MAX),
+		Number_Of_Votes INT,
+		IMDB_Rating FLOAT
 		);';
 
 IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
