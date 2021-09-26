@@ -64,19 +64,8 @@ SET @sql = '
 		State VARCHAR(MAX),
 		Year INT,
 		Cause VARCHAR(MAX),
-		Male_14 INT,
-		Male_15_29 INT,
-		Male_30_44 INT,
-		Male_45_59 INT,
-		Male_60 INT,
-		Total_Male INT,
-		Female_14 INT,
-		Female_15_29 INT,
-		Female_30_44 INT,
-		Female_45_59 INT,
-		Female_60 INT,
-		Total_Female INT,
-		Total_Male_Female INT,
+		Age_Group VARCHAR(MAX),
+		Suicide INT,
 		);';
 
 IF OBJECT_ID('{database}.{schema}.' + @table) IS NOT NULL
